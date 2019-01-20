@@ -11,13 +11,51 @@ namespace ASPNETMVCRouting
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");//.axd uzantılı isteklere erişimi engellemektir.
+
+            //routes.MapRoute(
+            //    name: "Default",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            //);
 
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+                name:"Anasayfa",
+                url:"anasayfa",
+                defaults: new { controller = "Site", action = "Anasayfa"});
+
+            ////kategori/spor
+            //routes.MapRoute(
+            //    name: "Kategori",
+            //    url: "kategori/{kategori}",
+            //    defaults: new { controller = "HaberKategori", action = "Anasayfa" });
+
+
+            //kategorilerin en yüksek kırılım sayısını veritabanından sorgulayıp öğrenmemiz gerekir. Fakat şimdilik biz 3 diyeceğiz.
+            //kategori/{kategori0} : kategori/spor,  kategori/dunya
+            //kategori/{kategori0}/{kategori1} : kategori/spor/futbol, kategori/dunya/ingiltere
+            //kategori/{kategori0}/{kategori1}/{kategori2} : kategori/spor/futbol/fenerbahce, kategori/dunya/ingiltere/ekonomi
+            int kategoriKirilimSayisi = 3;
+            string kategoriUrl = "kategori";
+            string haberUrl = "haber";
+            for (int i = 0; i < kategoriKirilimSayisi; i++)
+            {
+                kategoriUrl += "/{kategori" + i + "}";
+                routes.MapRoute(
+                    name: "Kategoi" + i,
+                    url: kategoriUrl,
+                    defaults: new { controller = "HaberKategori", action = "Anasayfa" });
+
+                haberUrl += "/{kategori" + i + "}";
+                routes.MapRoute(
+                    name: "Haber" + i,
+                    url: haberUrl + "/{haber}",
+                    defaults: new { controller = "Haber", action = "Detay" });
+            }
+
+
+            
+
         }
     }
 }
