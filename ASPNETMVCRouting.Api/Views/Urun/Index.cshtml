@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Api";
+}
+
+<input type="button" id="urunleriListele" value="Ürünleri Getir" class="btn btn-success"/>
+
+<div id="Urunler"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#urunleriListele").click(function () {
+            $.getJSON('../api/UrunApi/TumUrunler').done(function (veri) {
+                var urunler = "";
+                $.each(veri, function (key, urun) {
+                    urunler += urun.Ad + " Fiyatı : " + urun.Fiyat + "<br />";
+                });
+                $('#Urunler').html(urunler);
+            })
+      });
+    });
+</script>

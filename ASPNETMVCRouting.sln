@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNETMVCRouting", "ASPNETMVCRouting\ASPNETMVCRouting.csproj", "{11C688AB-2261-4D77-BA70-7300D93CD73C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNETMVCRouting.Api", "ASPNETMVCRouting.Api\ASPNETMVCRouting.Api.csproj", "{1113C9D9-DB3F-449E-80B8-9BA25652B82D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{11C688AB-2261-4D77-BA70-7300D93CD73C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11C688AB-2261-4D77-BA70-7300D93CD73C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11C688AB-2261-4D77-BA70-7300D93CD73C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1113C9D9-DB3F-449E-80B8-9BA25652B82D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1113C9D9-DB3F-449E-80B8-9BA25652B82D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1113C9D9-DB3F-449E-80B8-9BA25652B82D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1113C9D9-DB3F-449E-80B8-9BA25652B82D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

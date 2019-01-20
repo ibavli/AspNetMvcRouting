@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Dersler";
+}
+
+
+<select id="ogretimgorevlileri" class="form-control">
+    <option value="aliveli">Ali Veli</option>
+    <option value="hasanhuseyin">Hasan Hüseyin</option>
+    <option value="aysefatma">Ayşe Fatma</option>
+</select>
+
+
+<input type="button" id="dersleriListele" value="Dersleri Listele" class="btn btn-success" />
+<br />
+<div id="dersler"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#dersleriListele").click(function () {
+            var ogretimGorevlisi = $("#ogretimgorevlileri option:selected").val();
+            $.getJSON('../ogretimgorevlisi/' + ogretimGorevlisi + '/dersler').done(function (dersListesi) {
+                var dersler = "";
+                $.each(dersListesi, function (key, ders) {
+                    dersler += "Ders Kodu : " + ders.Kod + "<br />";
+                });
+                $('#dersler').html(dersler);
+            })
+      });
+    });
+</script>
