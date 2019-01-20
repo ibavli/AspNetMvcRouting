@@ -15,5 +15,7 @@ namespace ASPNETMVCRouting.Controllers
             ViewBag.HaberAdi = haber.Replace("-", " ");
             return View();
         }
+
+        
     }
 }

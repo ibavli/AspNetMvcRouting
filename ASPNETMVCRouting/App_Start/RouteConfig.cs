@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ASPNETMVCRouting.RouteConstraints;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -62,6 +63,8 @@ namespace ASPNETMVCRouting
                     name: "Kategori" + i,
                     url: kategoriUrl,
                     defaults: new { controller = "HaberKategori", action = "Anasayfa" });
+                    //constraints: new { kategori = new KategoriRouteConstraints() });
+                    //Bu metoda gidip gerçektende kategorimiz veritabanında var mı diye bakabiliriz. Kontrol edebiliriz.
 
                 haberUrl += "/{kategori" + i + "}";
                 routes.MapRoute(
