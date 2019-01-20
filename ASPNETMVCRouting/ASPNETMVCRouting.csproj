@@ -123,6 +123,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Site\Anasayfa.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Site\Arsiv.cshtml" />
+    <Content Include="Views\Site\ArsivTarih.cshtml" />
+    <Content Include="Views\HaberKategori\Arsiv.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

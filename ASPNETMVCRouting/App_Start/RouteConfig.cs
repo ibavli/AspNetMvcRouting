@@ -20,9 +20,25 @@ namespace ASPNETMVCRouting
             //);
 
             routes.MapRoute(
+                "Default", // Route name
+                "",        // URL with parameters
+                new { controller = "Site", action = "Anasayfa" }  // Parameter defaults
+            );
+
+            routes.MapRoute(
                 name:"Anasayfa",
                 url:"anasayfa",
                 defaults: new { controller = "Site", action = "Anasayfa"});
+
+            routes.MapRoute(
+               name: "Arsiv",
+               url: "arsiv",
+               defaults: new { controller = "Site", action = "Arsiv" });
+
+            routes.MapRoute(
+               name: "ArsivTarih",
+               url: "arsiv/{tarih}",
+               defaults: new { controller = "Site", action = "ArsivTarih" });
 
             ////kategori/spor
             //routes.MapRoute(
@@ -38,11 +54,12 @@ namespace ASPNETMVCRouting
             int kategoriKirilimSayisi = 3;
             string kategoriUrl = "kategori";
             string haberUrl = "haber";
+            string arsivUrl = "arsiv/{tarih}";
             for (int i = 0; i < kategoriKirilimSayisi; i++)
             {
                 kategoriUrl += "/{kategori" + i + "}";
                 routes.MapRoute(
-                    name: "Kategoi" + i,
+                    name: "Kategori" + i,
                     url: kategoriUrl,
                     defaults: new { controller = "HaberKategori", action = "Anasayfa" });
 
@@ -51,6 +68,13 @@ namespace ASPNETMVCRouting
                     name: "Haber" + i,
                     url: haberUrl + "/{haber}",
                     defaults: new { controller = "Haber", action = "Detay" });
+
+                //kategori/spor/futbol/galatasaray
+                arsivUrl += "/{kategori" + i + "}";
+                routes.MapRoute(
+                    name: "Arsiv" + i,
+                    url: arsivUrl,
+                    defaults: new { controller = "HaberKategori", action = "Arsiv" });
             }
 
 

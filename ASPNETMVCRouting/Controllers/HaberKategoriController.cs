@@ -24,5 +24,17 @@ namespace ASPNETMVCRouting.Controllers
             ViewBag.KategoriAdi = kategori;
             return View();
         }
+
+        //RouteData.Values.Values
+        //arsiv/kategori/05-08-2018/spor/futbol
+        public ActionResult Arsiv()
+        {
+            int tarihSirasi = this.RouteData.Values.Count - 6;
+            int kategoriSirasi = this.RouteData.Values.Count - 4;
+            string tarih = this.RouteData.Values["kategori" + tarihSirasi].ToString();
+            string kategori = this.RouteData.Values["kategori" + kategoriSirasi].ToString();
+            ViewBag.KategoriAdi = tarih + " - " + kategori;
+            return View();
+        }
     }
 }

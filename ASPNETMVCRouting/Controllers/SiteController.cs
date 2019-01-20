@@ -12,5 +12,20 @@ namespace ASPNETMVCRouting.Controllers
         {
             return View();
         }
+
+        //arsiv
+        public ActionResult Arsiv()
+        {
+            return View();
+        }
+
+        //arsiv/28-05-2018
+        public ActionResult ArsivTarih(string tarih)
+        {
+            ViewBag.tarih = tarih;
+            return View();
+        }
+
+
     }
 }
